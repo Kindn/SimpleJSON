@@ -123,13 +123,14 @@ namespace sjson
 
     std::string JsonReader::getStr(int n)
     {
-        curr_pos += n;
+	    std::string str = strAhead(n);
         if (curr_pos >= src_str_len)
         {
             throw JsonError("Json file ends unexpectedly!", 
                             getCurrLine(), getCurrCol());
         }
-        return strAhead(n);
+	    curr_pos += n;
+        return str;
     }
 
     int JsonReader::getCurrLine() const
@@ -609,6 +610,7 @@ namespace sjson
                              int _tab_num, 
                              bool _one_line_per_element) const
     {
+        _dst_str.clear();
         for (int i = 0; i < _tab_num; i++)
             _dst_str += '\t';
 
@@ -1350,6 +1352,7 @@ namespace sjson
     void Json::toString(std::string& _output_str, 
                         bool _one_line_per_item) const
     {
+        _output_str.clear();
         root->toJsonStr(_output_str, false, 0, _one_line_per_item);
     }
 

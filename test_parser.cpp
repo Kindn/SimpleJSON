@@ -36,8 +36,6 @@ int main()
         root["author"] = "lpy";
         json.toString(json_ptr, true);
         cout << json_ptr << endl;
-        //int id = root["id"]->as_int();
-        //cout << "id = " << id << endl;
     }
     catch(const std::exception& e)
     {
