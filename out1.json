@@ -1,0 +1,21 @@
+{
+	"id":234,
+	"weight":-63.25e+02,
+	"name":"SimpleJSON\u8233",
+	"num_array":[
+		12.100000,
+		5.600000,
+		8.800000
+	],
+	"friend":{
+		"id":123,
+		"weight":63.250000,
+		"name":"SimpleNN",
+		"layers":[
+			"convolution",
+			"pooling",
+			"affine"
+		], 
+		"emmm":true
+	}
+}
