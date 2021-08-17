@@ -156,6 +156,8 @@ namespace sjson
         private:
             JsonNode_P root;
 
+            bool success;
+
         public:
             Json();
             Json(const std::string& _json_str);
@@ -164,6 +166,8 @@ namespace sjson
         
         public:
             JsonNode& getRoot();
+            bool succeed() const;
+            bool fail() const;
         private: // for parsing
             void parseValue(JsonNode_P _node, JsonReader& _reader);
             void parseNumber(JsonNode_P _node, JsonReader& _reader);

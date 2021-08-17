@@ -9,9 +9,9 @@ using namespace sjson;
 int main()
 {
     ifstream ifs("/home/lpy/SimpleJSON/out1.json");
-    try
+    Json json(ifs);
+    if (json.succeed())
     {
-        Json json(ifs);
         string json_ptr;
         json.toString(json_ptr, true);
         cout << json_ptr << endl;
@@ -36,11 +36,7 @@ int main()
         root["author"] = "lpy";
         json.toString(json_ptr, true);
         cout << json_ptr << endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    }            
     
 
 	return 0;

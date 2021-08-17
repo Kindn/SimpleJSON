@@ -982,15 +982,33 @@ namespace sjson
     Json::Json(const std::string& _json_str)
     {
         root = std::make_shared<JsonNode>(JSON_VALUE_TYPE_OBJECT);
-        JsonReader reader(_json_str);
-        parseValue(root, reader);
+        try
+        {
+            JsonReader reader(_json_str);
+            parseValue(root, reader);
+            success = true;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            success = false;
+        }  
     }
 
     Json::Json(std::ifstream& _ifs)
     {
         root = std::make_shared<JsonNode>(JSON_VALUE_TYPE_OBJECT);
-        JsonReader reader(_ifs);
-        parseValue(root, reader);
+        try
+        {
+            JsonReader reader(_ifs);
+            parseValue(root, reader);
+            success = true;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            success = false;
+        }  
     }
 
     Json::~Json()
@@ -1001,6 +1019,16 @@ namespace sjson
     JsonNode& Json::getRoot()
     {
         return *root;
+    }
+
+    bool Json::succeed() const
+    {
+        return success;
+    }
+
+    bool Json::fail() const
+    {
+        return !success;
     }
     
     void Json::parseValue(JsonNode_P _node, JsonReader& _reader)
