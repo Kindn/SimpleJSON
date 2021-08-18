@@ -42,7 +42,7 @@ int main()
         json.toString(json_ptr, true);   // get json string
         cout << json_ptr << endl;
 
-        JsonNode root = json.getRoot();  // get the root object
+        JsonNode& root = json.getRoot();  // get the root object
         int id = root["id"].as_int();  // get the integer value of item named "id" in root object
         cout << "id = " << id << endl;
         root["id"] = 567;  // set the value
