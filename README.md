@@ -73,6 +73,8 @@ int main()
         root["optimizers"][2] = "AdaGrad";
         json.toString(json_ptr, true);
         cout << json_ptr << endl;
+
+        json.save("/home/lpy/SimpleJSON/out2.json", true); // save as json file
     }            
     
 

@@ -1,0 +1,23 @@
+{
+	"id":567.000000,
+	"weight":-6325.000000,
+	"name":"SimpleJSON舳",
+	"num_array":[
+		12.100000,
+		5.600000,
+		8.800000
+	],
+	"friend":{
+		"id":123.000000,
+		"weight":63.250000,
+		"name":"SimpleNN",
+		"layers":[],
+		"emmm":true
+	},
+	"author":"lpy",
+	"optimizers":[
+		"GradDescent",
+		"Momentumn",
+		"AdaGrad"
+	]
+}
