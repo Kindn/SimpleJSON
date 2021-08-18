@@ -406,6 +406,7 @@ namespace sjson
                 JsonNode_P new_element(new JsonNode(JSON_VALUE_TYPE_NULL));
                 push_back(new_element);
             }
+            children_size = _size;
         }
         catch(const std::exception& e)
         {
