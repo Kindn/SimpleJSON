@@ -36,6 +36,17 @@ int main()
         root["author"] = "lpy";
         json.toString(json_ptr, true);
         cout << json_ptr << endl;
+
+        if (root["optimizers"].set_array(3))
+        {
+            json.toString(json_ptr, true);
+            cout << json_ptr << endl;
+        }
+        root["optimizers"][0] = "GradDescent";
+        root["optimizers"][1] = "Momentumn";
+        root["optimizers"][2] = "AdaGrad";
+        json.toString(json_ptr, true);
+        cout << json_ptr << endl;
     }            
     
 

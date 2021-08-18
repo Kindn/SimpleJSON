@@ -118,6 +118,7 @@ namespace sjson
             void clear();
 
         public:
+            bool      set_array(int _size = 0);
             JsonNode& array_get(int _index);
             void      array_insert(JsonNode_P _node, int _index);
             void      array_erase(int _index);

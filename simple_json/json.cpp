@@ -392,6 +392,30 @@ namespace sjson
         children_size = 0;
     }
 
+    bool JsonNode::set_array(int _size)
+    {
+        if (value_type == JSON_VALUE_TYPE_NULL)
+            setValueType(JSON_VALUE_TYPE_ARRAY);
+        if (value_type != JSON_VALUE_TYPE_ARRAY)
+            return false;
+        try
+        {
+            clear();
+            for (int i = 0; i < _size; i++)
+            {
+                JsonNode_P new_element(new JsonNode(JSON_VALUE_TYPE_NULL));
+                push_back(new_element);
+            }
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            return false;
+        }
+        
+        return true;
+    }
+
     JsonNode& JsonNode::array_get(int _index)
     {
         if (value_type != JSON_VALUE_TYPE_ARRAY)
