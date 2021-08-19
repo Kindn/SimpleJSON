@@ -990,6 +990,19 @@ namespace sjson
            break;
         }
     }
+
+    std::vector<JsonNode_P> JsonNode::as_vector()
+    {
+        std::vector<JsonNode_P> vec;
+        JsonNode_P curr_node = child_head;
+        for (int i = 0; i < children_size; i++)
+        {
+            vec.push_back(curr_node);
+            curr_node = curr_node->next;
+        }
+
+        return vec;
+    }
             
 
     void JsonNode::setValueType(int _value_type)

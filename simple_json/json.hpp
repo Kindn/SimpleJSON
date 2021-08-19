@@ -13,6 +13,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <map>
 #include <memory>
 #include <sstream>
 #include <math.h>
@@ -143,8 +144,7 @@ namespace sjson
             double      as_double() const;
             bool        as_bool() const;
             std::string as_string() const;
-            /*template <class Vec_Type>
-            std::vector<Vec_Type>  as_vector() const;*/
+            std::vector<JsonNode_P> as_vector();
 
         private:
             void setValueType(int _value_type);
