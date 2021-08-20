@@ -50,8 +50,8 @@ int main()
 
         json.save("/home/lpy/SimpleJSON/out2.json", true);
     }            
+    ifs.close();
     
-
 	return 0;
 }
 

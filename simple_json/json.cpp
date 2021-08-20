@@ -1432,6 +1432,7 @@ namespace sjson
         std::string output_str;
         toString(output_str, _one_line_per_item);
         ofs << output_str;
+        ofs.close();
 
         return true;
     }
